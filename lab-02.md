@@ -76,9 +76,32 @@ ggplot(data = plastic_waste,
 
 ### Exercise 2
 
+Defining specifications in aesthetics mapping changes how variables are
+mapped onto the graph while defining specifications in geom_density
+changes elements of the graph (regardless of what variable they are
+associated with).
+
 ``` r
-# insert code here
+ggplot(data = plastic_waste,
+       mapping = aes(x = plastic_waste_per_cap,
+                     color = continent,
+                     fill = continent)) +
+  geom_density(alpha = .3)
 ```
+
+    ## Warning: Removed 51 rows containing non-finite values (stat_density).
+
+![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
+
+``` r
+ggplot(data = plastic_waste,
+       mapping = aes(x = continent, y = plastic_waste_per_cap))+
+  geom_boxplot()
+```
+
+    ## Warning: Removed 51 rows containing non-finite values (stat_boxplot).
+
+![](lab-02_files/figure-gfm/plastic-waste-density-2.png)<!-- -->
 
 ### Exercise 3
 
