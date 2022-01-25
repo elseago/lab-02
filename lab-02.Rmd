@@ -106,10 +106,18 @@ ggplot(data = plastic_waste,
 
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
+This graph plots the relationship between the proportion of a country's population that is coastal and the amount of plastic waste per capita in that country. There is also a smoothing line with standard error bars that shows the trend. There appears to be a positive relationship between proportion of coastal population and plastic waste, though the relationship doesn't really look that linear.
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+
+ggplot(data = plastic_waste%>%
+         filter(plastic_waste_per_cap<3),
+       mapping = aes(x =(coastal_pop/total_pop), y = plastic_waste_per_cap, color = continent))+
+  geom_point()+
+  geom_smooth(inherit.aes = FALSE, aes(x =(coastal_pop/total_pop), y = plastic_waste_per_cap))+
+  labs(title = "Plastic waste vs Coastal population proportion",
+       subtitle = "by continent",x = "Coastal population proportion (coastal/total population)")
+
 ```
 
 ### Exercise 6
