@@ -19,10 +19,28 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+The continents show quite a lot of similarity, for all continents people in the majority of countries produce less than 1kg of plastic waste per year. The exception is Trinidad and Tobago, shown on the graph of North America, where people produce more than 3.5kg of plastic waste per year.
 
 ```{r plastic-waste-continent}
-# insert code here
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2)
+
+plastic_waste %>%
+  filter(plastic_waste_per_cap >3.5)
+
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2) +
+  facet_wrap(~continent)
+
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_density()
+
+ggplot(data = plastic_waste,
+       mapping = aes(x = plastic_waste_per_cap,
+                     color = continent,
+                     fill = continent)) +
+  geom_density(alpha = .7)
+
 ```
 
 ### Exercise 2
