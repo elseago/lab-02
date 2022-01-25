@@ -60,7 +60,13 @@ ggplot(data = plastic_waste,
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+The box plots show each outlier more distinctly with individual dots per outlier. The violin plot makes it impossible to miss an outlier.The violin plot also shows the density of data at each value of plastic waste per capita.
+
+```{r}
+ggplot(data = plastic_waste,
+       mapping = aes(x = continent, y = plastic_waste_per_cap))+
+  geom_violin()
+```
 
 ### Exercise 4
 

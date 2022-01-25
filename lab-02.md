@@ -105,6 +105,16 @@ ggplot(data = plastic_waste,
 
 ### Exercise 3
 
+``` r
+ggplot(data = plastic_waste,
+       mapping = aes(x = continent, y = plastic_waste_per_cap))+
+  geom_violin()
+```
+
+    ## Warning: Removed 51 rows containing non-finite values (stat_ydensity).
+
+![](lab-02_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
 Remove this text, and add your answer for Exercise 3 here.
 
 ### Exercise 4
