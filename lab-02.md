@@ -1,7 +1,7 @@
 Lab 02 - Plastic waste
 ================
-Insert your name here
-Insert date here
+Elayna Seago
+1/25/22
 
 ## Load packages and data
 
@@ -105,6 +105,11 @@ ggplot(data = plastic_waste,
 
 ### Exercise 3
 
+The box plots show each outlier more distinctly with individual dots per
+outlier. The violin plot makes it impossible to miss an outlier.The
+violin plot also shows the density of data at each value of plastic
+waste per capita.
+
 ``` r
 ggplot(data = plastic_waste,
        mapping = aes(x = continent, y = plastic_waste_per_cap))+
@@ -113,17 +118,64 @@ ggplot(data = plastic_waste,
 
     ## Warning: Removed 51 rows containing non-finite values (stat_ydensity).
 
-![](lab-02_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
-
-Remove this text, and add your answer for Exercise 3 here.
+![](lab-02_files/figure-gfm/plastic-waste-violin-1.png)<!-- -->
 
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
+There is a positive relationship between plastic waste per capita and
+mismanaged plastic waste per capita. This makes sense because the more
+waste you have the more waste you can mismanage.
 
 ``` r
-# insert code here
+ggplot(data = plastic_waste,
+       mapping = aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap)) +
+  geom_point()
 ```
+
+    ## Warning: Removed 51 rows containing missing values (geom_point).
+
+![](lab-02_files/figure-gfm/scatter%20plot%20of%20plastic-waste-per-cap%20and%20mismanaged-plastic-waste-1.png)<!-- -->
+
+### Exercise 4.2
+
+There are some distinctions. Europe seems to have a lower rate of
+mismanaged plastic per capita given the amount of plastic waste they
+have per capita. North America is also doing well barring Trinidad and
+Tobago.
+
+``` r
+ggplot(data = plastic_waste,
+       mapping = aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap, color = continent)) +
+  geom_point()
+```
+
+    ## Warning: Removed 51 rows containing missing values (geom_point).
+
+![](lab-02_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+### Exercise 4.3
+
+The relationship between these pairs looks fairly similar to me.
+
+``` r
+ggplot(data = plastic_waste,
+       mapping = aes(x = total_pop, y = plastic_waste_per_cap, color = continent))+
+  geom_point()
+```
+
+    ## Warning: Removed 61 rows containing missing values (geom_point).
+
+![](lab-02_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+``` r
+ggplot(data = plastic_waste,
+       mapping = aes(x = coastal_pop, y = plastic_waste_per_cap, color = continent))+
+  geom_point()
+```
+
+    ## Warning: Removed 51 rows containing missing values (geom_point).
+
+![](lab-02_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
 
 ### Exercise 5
 

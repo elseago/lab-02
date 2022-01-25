@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 - Plastic waste"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Elayna Seago"
+date: "1/25/22"
 output: github_document
 ---
 
@@ -62,7 +62,7 @@ ggplot(data = plastic_waste,
 
 The box plots show each outlier more distinctly with individual dots per outlier. The violin plot makes it impossible to miss an outlier.The violin plot also shows the density of data at each value of plastic waste per capita.
 
-```{r}
+```{r plastic-waste-violin}
 ggplot(data = plastic_waste,
        mapping = aes(x = continent, y = plastic_waste_per_cap))+
   geom_violin()
@@ -70,11 +70,39 @@ ggplot(data = plastic_waste,
 
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
+There is a positive relationship between plastic waste per capita and mismanaged plastic waste per capita. This makes sense because the more waste you have the more waste you can mismanage.
 
-```{r plastic-waste-violin}
-# insert code here
+```{r scatter plot of plastic-waste-per-cap and mismanaged-plastic-waste}
+ggplot(data = plastic_waste,
+       mapping = aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap)) +
+  geom_point()
 ```
+
+### Exercise 4.2
+There are some distinctions. Europe seems to have a lower rate of mismanaged plastic per capita given the amount of plastic waste they have per capita. North America is also doing well barring Trinidad and Tobago. 
+
+```{r}
+ggplot(data = plastic_waste,
+       mapping = aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap, color = continent)) +
+  geom_point()
+```
+
+### Exercise 4.3
+The relationship between these pairs looks fairly similar to me.
+
+```{r}
+ggplot(data = plastic_waste,
+       mapping = aes(x = total_pop, y = plastic_waste_per_cap, color = continent))+
+  geom_point()
+
+
+ggplot(data = plastic_waste,
+       mapping = aes(x = coastal_pop, y = plastic_waste_per_cap, color = continent))+
+  geom_point()
+
+```
+
+
 
 ### Exercise 5
 
